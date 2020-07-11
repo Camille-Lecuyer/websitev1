@@ -143,8 +143,7 @@
         <div class="g-recaptcha" data-sitekey="6Lc7cVMUAAAAAM1yxf64wrmO8gvi8A1oQ_ead1ys" class="form-control" style="width:100%;"></div>
         <button type="button" onClick="submitToAPI(event)" class="btn btn-lg" style="margin-top:20px;">Submit</button>
     </form>
-        Contact form here
-        Buttons for Linkedin?
+    
 </div>
 <!-- End Jumbotron -->
 </div>
@@ -157,23 +156,23 @@
 
 <script>
     function submitToAPI(e) {
-       e.preventDefault();
-       var URL = "https://88ro47wnbf.execute-api.eu-west-2.amazonaws.com/mailfwd";
+        e.preventDefault();
+        var URL = "https://hbubeofw1e.execute-api.eu-west-2.amazonaws.com/ContactmePOST";
 
-            var Namere = /[A-Za-z]{1}[A-Za-z]/;
-            if (!Namere.test($("#name-input").val())) {
-                         alert ("Name can not less than 2 char");
-                return;
-            }
-            if ($("#email-input").val()=="") {
-                alert ("Please enter your email id");
-                return;
-            }
-            var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
-            if (!reeamil.test($("#email-input").val())) {
-                alert ("Please enter valid email address");
-                return;
-            }
+        var Namere = /[A-Za-z]{1}[A-Za-z]/;
+        if (!Namere.test($("#name-input").val())) {
+                        alert ("Name can not less than 2 char");
+            return;
+        }
+        if ($("#email-input").val()=="") {
+            alert ("Please enter your email id");
+            return;
+        }
+        var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
+        if (!reeamil.test($("#email-input").val())) {
+            alert ("Please enter valid email address");
+            return;
+        }
 
        var name = $("#name-input").val();
        var email = $("#email-input").val();
@@ -185,7 +184,7 @@
         };
        $.ajax({
          type: "POST",
-         url : "https://88ro47wnbf.execute-api.eu-west-2.amazonaws.com/mailfwd",
+         url : "https://hbubeofw1e.execute-api.eu-west-2.amazonaws.com/ContactmePOST",
          dataType: "json",
          crossDomain: "true",
          contentType: "application/json; charset=utf-8",
@@ -196,8 +195,8 @@
            // clear form and show a success message
            alert("Successfull");
            document.getElementById("contact-form").reset();
-       location.reload();
-    },
+            location.reload();
+        },
          error: function () {
            // show an error message
            alert("UnSuccessfull");
